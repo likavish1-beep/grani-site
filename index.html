@@ -1806,7 +1806,7 @@ function closeDetail(push){
 document.getElementById('backBtn').addEventListener('click',function(){ closeDetail(true); });
 window.addEventListener('popstate',function(e){
   if(e.state && e.state.detail){ openDetail(e.state.detail, false); }
-  else { document.getElementById('detail').classList.remove('open'); document.body.classList.remove('locked'); }
+  else { applyHash(); }
 });
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeDetail(true); });
 
@@ -1825,8 +1825,16 @@ function closeLegal(){document.getElementById('legal').classList.remove('open');
 document.getElementById('legalBtn').addEventListener('click',openLegal);
 document.getElementById('legalBack').addEventListener('click',closeLegal);
 document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeLegal(); });
-window.addEventListener('hashchange',function(){ if(location.hash==='#legal'){ openLegal(); } else if(document.getElementById('legal').classList.contains('open')){ closeLegal(); } });
-if(location.hash==='#legal'){ openLegal(); }
+function applyHash(){
+  var h=(location.hash||'').replace(/^#/,'');
+  if(h==='legal'){ openLegal(); return; }
+  if(document.getElementById('legal').classList.contains('open')) closeLegal();
+  if(h && P[h]){ openDetail(h, false); return; }
+  if(document.getElementById('detail').classList.contains('open')) closeDetail(false);
+}
+window.addEventListener('hashchange', applyHash);
+window.addEventListener('pageshow', applyHash);
+applyHash();
 
 document.querySelectorAll('.legal .acc').forEach(function(d){
   d.addEventListener('toggle',function(){

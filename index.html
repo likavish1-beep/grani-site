@@ -381,6 +381,58 @@
   .herb-list li{color:var(--ink-soft);font-size:16px;line-height:1.6;margin-bottom:13px}
   .herb-list .n{display:inline-block;width:31px;height:31px;line-height:29px;text-align:center;border:1px solid var(--rose);border-radius:50%;font-family:var(--serif);font-size:15px;color:var(--rose-deep);margin-right:9px;vertical-align:middle}
   .herb-list b{color:var(--forest);margin-right:.3em}
+
+  /* ===== BLACK FRIDAY ===== */
+  :root{--bf:#2e3a1e;--bf2:#1f2810;--bf-ink:#fff7ef;--bf-red:#9e1b22;--bf-red2:#7a1218}
+  .bf-hero{position:relative;overflow:hidden}
+  .bf-zone{position:relative;overflow:hidden;height:calc(17vw + 150px);margin-top:calc(-8.5vw - 75px);pointer-events:none;z-index:4}
+  .hero .actions{position:relative;z-index:6}
+  .bf-tape{display:block;width:auto;position:absolute;left:-20vw;width:140vw;top:50%;margin-top:-27px;z-index:3;transform:rotate(-10deg);
+    background:linear-gradient(90deg,var(--bf2),var(--bf) 50%,var(--bf2));color:var(--bf-ink);
+    box-shadow:0 10px 26px rgba(40,60,25,.28);padding:13px 0;overflow:hidden;white-space:nowrap}
+  .bf-tape:before,.bf-tape:after{content:'';position:absolute;left:0;right:0;height:1px;background:rgba(255,247,239,.45)}
+  .bf-tape:before{top:5px}.bf-tape:after{bottom:5px}
+  .bf-tape .row{display:inline-flex;gap:34px;animation:bfrun 26s linear infinite;padding-left:34px}
+  .bf-tape span{font-family:var(--sans);font-weight:600;font-size:17px;letter-spacing:.22em;text-transform:uppercase}
+  .bf-tape span i{font-style:normal;opacity:.6;margin-left:34px}
+  .bf-tape.bf-back{transform:rotate(-4deg);background:linear-gradient(90deg,var(--bf-red2),var(--bf-red) 50%,var(--bf-red2));z-index:2}
+  .bf-tape span.red{color:#c4161f;text-shadow:0 0 1px rgba(255,255,255,.15)}
+  .bf-tape.bf-back span.red{color:#cfe0b4}
+  .bf-tape span i{color:#e0b062}
+  .grid .card.sale:nth-child(even) .bf-rib{background:linear-gradient(90deg,var(--bf-red2),var(--bf-red),var(--bf-red2))}
+  .bf-deck-note{margin-top:12px;font-size:14px;color:var(--ink-soft)}
+  .bf-tape.bf-back .row{animation-direction:reverse}
+  @keyframes bfrun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.bf-tape .row{animation:none}}
+  .bf-sub{text-align:center;margin:-30px auto 40px;position:relative;z-index:5;padding:0 20px;font-size:14px;color:var(--ink-soft);letter-spacing:.04em}
+  .bf-sub b{color:var(--bf2)}
+  .card .bf-rib{position:absolute;top:30px;right:-58px;width:210px;transform:rotate(45deg);z-index:2;
+    background:linear-gradient(90deg,var(--bf2),var(--bf),var(--bf2));color:var(--bf-ink);text-align:center;
+    font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 0 6px;
+    box-shadow:0 3px 10px rgba(40,60,25,.3)}
+  .card .bf-rib b{display:block;font-size:14px;letter-spacing:.06em}
+  .card .bf-price{margin-top:14px;display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap}
+  .bf-old{color:var(--ink-faint);text-decoration:line-through;text-decoration-color:var(--bf);text-decoration-thickness:2px}
+  .card .bf-price .bf-old{font-size:14px}
+  .card .bf-price .bf-now{font-family:var(--serif);font-size:26px;color:var(--bf2);font-weight:600;line-height:1}
+  .card .bf-note{font-size:12px;color:var(--bf2);margin-top:4px}
+  .bf-badge{display:inline-block;background:var(--bf);color:var(--bf-ink);font-size:11px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;padding:5px 12px;border-radius:30px;margin-bottom:10px}
+  .d-meta .v.price .bf-old{display:block;font-size:15px}
+  .d-meta .v.price .bf-now{color:var(--bf2);font-weight:600}
+  .price-magic.bf{border-color:var(--bf);position:relative;overflow:hidden}
+  .price-magic .amt .bf-old{display:block;font-size:.45em;margin-bottom:8px}
+  .price-magic.bf .amt{color:var(--bf2)}
+  .tariff-price .bf-old{font-size:.62em;margin-right:8px}
+  .tariff-price .bf-now{color:var(--bf2);font-weight:600}
+
+  /* new prices: bright red, bold */
+  .bf-now,.card .bf-price .bf-now,.d-meta .v.price .bf-now,.tariff-price .bf-now{color:#d1121d !important;font-weight:700 !important}
+  .price-magic.bf .amt{color:#d1121d;font-weight:700}
+  .price-magic.bf .amt .bf-old{font-weight:400}  .card .bf-price .bf-now{font-family:var(--sans);font-size:22px;font-weight:600 !important;letter-spacing:-.01em}
+  .tariff-price .bf-now,.d-meta .v.price .bf-now{font-family:var(--sans);font-weight:600 !important}
+  .price-magic.bf .amt{font-family:var(--sans);font-weight:600;font-size:clamp(32px,6vw,46px)}
+  .price-magic.bf .amt .bf-old{font-family:var(--serif)}
 </style>
 </head>
 <body>
@@ -402,7 +454,7 @@
 
 <!-- HERO -->
 <div class="wrap">
-  <section class="hero">
+  <section class="hero bf-hero">
     <svg class="sprig tl" viewBox="0 0 120 200" fill="none" stroke="currentColor" stroke-width="1.1">
       <path d="M60 198 C60 150 60 110 60 40" />
       <path d="M60 150 C40 142 28 128 24 110 M60 150 C82 144 96 130 100 112"/>
@@ -428,6 +480,7 @@
     </div>
   </section>
 </div>
+<div class="bf-zone"><div class="bf-tape"><div class="row"><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span></div></div><div class="bf-tape bf-back" aria-hidden="true"><div class="row"><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">Скидки до −70%<i>✦</i></span><span>Black Friday<i>✦</i></span><span class="red">−70% на курсы и мастер-классы<i>✦</i></span></div></div></div><p class="bf-sub"><b>Чёрная пятница</b> — скидки на записанные курсы, мастер-классы, консультации и свечи</p>
 
 <!-- MANIFESTO -->
 <section class="block manifesto-band" id="manifesto">
@@ -920,18 +973,43 @@ const P = {
   }
 };
 
+const SALE = {
+  totem:{old:'500 ₽', now:'150 ₽', pct:'−70%'},
+  recipe:{old:'990 ₽', now:'300 ₽', pct:'−70%'},
+  casting:{old:'14 / 24 / 44 т.р.', now:'4 / 7 / 13 т.р.', pct:'−70%'},
+  candles_course:{old:'25 000 ₽', now:'7 500 ₽', pct:'−70%'},
+  herbs:{old:'15 000 ₽', now:'4 500 ₽', pct:'−70%'},
+  city:{old:'9 936 ₽', now:'3 000 ₽', pct:'−70%'},
+  mk12:{old:'2 639 ₽', now:'790 ₽', pct:'−70%'},
+  mk_clean:{old:'2 639 ₽', now:'790 ₽', pct:'−70%'},
+  mk_home:{old:'2 639 ₽', now:'790 ₽', pct:'−70%'},
+  mk_money:{old:'2 639 ₽', now:'790 ₽', pct:'−70%'},
+  mk_fetch:{old:'2 500 ₽', now:'750 ₽', pct:'−70%'},
+  mk_thursday:{old:'2 639 ₽', now:'790 ₽', pct:'−70%'},
+  deck:{old:'56 000 ₽', now:'13 000 ₽', pct:'−77%'},
+  candles:{old:'3 600–9 000 ₽', now:'1 080–2 700 ₽', pct:'−70%'},
+  shades:{old:'3 000 ₽', now:'900 ₽', pct:'−70%'},
+  wheel_book:{old:'1 639 ₽', now:'490 ₽', pct:'−70%'},
+  circles:{old:'2 639 ₽', now:'790 ₽', pct:'−70%'}
+};
+SALE.deck.note='Курс «Легенды вечности» + интерактивная колода у вас в телефоне';
+function bfPrice(id){var x=SALE[id];return x?'<span class="bf-old">'+x.old+'</span> <span class="bf-now">'+x.now+'</span>':P[id].price;}
+function bfAmt(id){var x=SALE[id];return '<span class="bf-old">'+x.old+'</span>'+x.now;}
+function bfBox(id,lbl){var x=SALE[id];return '<div class="price-magic bf"><div class="bf-badge">Black Friday '+x.pct+'</div><div class="lbl">'+lbl+'</div><div class="amt">'+bfAmt(id)+'</div>'+(id==='deck'?'<p class="bf-deck-note">Интерактивная колода, которая всегда у вас в телефоне</p>':'')+'</div>';}
 function cardHTML(id){
   var p = P[id];
   var en = p.en ? '<span class="en">'+p.en+'</span>' : '';
   var ic = ICONS[p.icon] || '';
   var status = p.status ? '<div class="status">'+p.status+'</div>' : '';
   var more = 'Подробнее <span>&rarr;</span>';
-  return '<div class="card reveal" data-id="'+id+'">'
+  return '<div class="card reveal'+(SALE[id]?' sale':'')+'" data-id="'+id+'">'
+    +(SALE[id]?'<div class="bf-rib">Black Friday<b>'+SALE[id].pct+'</b></div>':'')
     +'<div class="ic">'+ic+'</div>'
     +'<div class="tag">'+p.tag+'</div>'
     +'<h4>'+p.name+en+'</h4>'
     +'<div class="hook">'+p.hook+'</div>'
     +status
+    +(SALE[id]?'<div class="bf-price"><span class="bf-old">'+SALE[id].old+'</span><span class="bf-now">'+SALE[id].now+'</span></div>'+(SALE[id].note?'<div class="bf-note">'+SALE[id].note+'</div>':''):'')
     +'<div class="foot"><span class="more">'+more+'</span></div>'
     +'</div>';
 }
@@ -966,7 +1044,7 @@ function buildDetail(id){
     +'<h1>'+p.name+en+'</h1>'
     +'<div class="d-hook">'+p.hook+'</div>'
     +'<div class="d-meta">'
-      +'<div><div class="k">Цена</div><div class="v price">'+p.price+'</div></div>'
+      +'<div><div class="k">Цена</div><div class="v price">'+bfPrice(id)+'</div></div>'
       +'<div><div class="k">Формат</div><div class="v">'+p.format+'</div></div>'
       +((p.dur && p.dur!=='—') ? '<div><div class="k">Длительность</div><div class="v">'+p.dur+'</div></div>':'')
     +'</div>'
@@ -1005,10 +1083,10 @@ function buildCasting(){
   +'</ul><p class="pcta">то этот курс для тебя.</p></div>'
   +'<h3 class="course-h">Три тарифа</h3>'
   +'<p style="color:var(--ink-soft);margin-bottom:6px">Каждый следующий тариф включает программу предыдущего — плюс свою.</p>'
-  +'<div class="tariffs">'
+  +'<div style="text-align:center"><span class="bf-badge">Black Friday −70% на все тарифы</span></div><div class="tariffs">'
     +'<div class="tariff">'
       +'<div class="tariff-icon">'+drop+'</div>'
-      +'<div class="tariff-top"><span class="tariff-name">Подмастерье</span><span class="tariff-price">14 000 ₽</span></div>'
+      +'<div class="tariff-top"><span class="tariff-name">Подмастерье</span><span class="tariff-price"><span class="bf-old">14 000 ₽</span><span class="bf-now">4 000 ₽</span></span></div>'
       +'<p class="tariff-for">Для новичков и тех, кто хочет помогать себе и близким и делает первые шаги.</p>'
       +'<ul>'
         +'<li><b>Теория:</b> инвентарь и материалы, общие правила и лучшее время для отливок, предварительная подготовка и защиты, заговоры, оговоры, требы и дары, схемы отливок, утилизация материала, объединение отливок с ритуалами и рунами.</li>'
@@ -1023,7 +1101,7 @@ function buildCasting(){
     +'</div>'
     +'<div class="tariff">'
       +'<div class="tariff-icon">'+drop+drop+'</div>'
-      +'<div class="tariff-top"><span class="tariff-name">Мастер</span><span class="tariff-price">24 000 ₽</span></div>'
+      +'<div class="tariff-top"><span class="tariff-name">Мастер</span><span class="tariff-price"><span class="bf-old">24 000 ₽</span><span class="bf-now">7 000 ₽</span></span></div>'
       +'<p class="tariff-for">Для тех, кто понимает, как устроена магия, и хочет большего, чем чистки: можно начинать работу с клиентами и добиваться целей точечно.</p>'
       +'<p class="tariff-incl">Всё из тарифа «Подмастерье», плюс:</p>'
       +'<ul>'
@@ -1038,7 +1116,7 @@ function buildCasting(){
     +'</div>'
     +'<div class="tariff tariff-vip">'
       +'<div class="tariff-icon">'+drop+drop+drop+'</div>'
-      +'<div class="tariff-top"><span class="tariff-name">VIP-мастер</span><span class="tariff-price">44 000 ₽</span></div>'
+      +'<div class="tariff-top"><span class="tariff-name">VIP-мастер</span><span class="tariff-price"><span class="bf-old">44 000 ₽</span><span class="bf-now">13 000 ₽</span></span></div>'
       +'<p class="tariff-for">Зрелое сознание: влияние на ситуацию не только через позитив. Магия не делится на чёрное и белое — она зависит от силы оператора и умения взять ответственность за результат.</p>'
       +'<p class="tariff-incl">Всё из тарифов «Подмастерье» и «Мастер», плюс:</p>'
       +'<ul>'
@@ -1110,7 +1188,7 @@ function buildThursday(){
     +'<li>Соль четверговая на силу.</li>'
     +'<li>Соль четверговая на хороший день, который приносит радость и достаток.</li>'
   +'</ol></div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость волшебства</div><div class="amt">2 639 ₽</div></div>'
+  +''+bfBox('mk_thursday','Стоимость волшебства')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Хочу МК</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1139,7 +1217,7 @@ function buildFetch(){
     +'<p>Этот помощник <b>не про лёгкие</b> и волшебные деньги. Он про <b class="big">быстрые</b>.</p>'
     +'<p>Те, что вы органично уже можете реализовать в своём пространстве, но по внутренней причине не идёте в это. Этот дружочек поможет вам в этом вопросе.</p>'
   +'</div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость волшебства</div><div class="amt">2 500 ₽</div></div>'
+  +''+bfBox('mk_fetch','Стоимость волшебства')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить МК</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1194,7 +1272,7 @@ function buildHerbs(){
     +'<li>Отвары для пульверизатора.</li>'
     +'<li>Восковые шарики.</li>'
   +'</ul></div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость волшебства</div><div class="amt">2 639 ₽</div></div>'
+  +''+bfBox('mk12','Стоимость волшебства')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить МК</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1277,7 +1355,7 @@ function buildMagic(){
     +'<li>Работа с фитилём: подготовка фитиля к свечам на разные сферы жизни, заговоры на фитили.</li>'
     +'<li>«50 оттенков твоих желаний» — тетрадь в PDF с заговорами и рецептами свечей под разные сферы жизни (подробнее про тетрадь можно прочитать <span class="ilink" onclick="openDetail(\'shades\',true)">ТУТ</span>).</li>'
   +'</ul></div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость курса</div><div class="amt">25 000 ₽</div></div>'
+  +''+bfBox('candles_course','Стоимость курса')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить курс</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1332,7 +1410,7 @@ function buildTotem(){
     +'<li>Узнаешь, кто твой зверь — не по дате рождения, не через медитацию, в которой ты его придумаешь. Ты станешь им во время моей авторской практики.</li>'
     +'<li>Узнаешь, как с ним работать и благодаря нему развиваться, получать от жизни удовольствие и удовлетворение.</li>'
   +'</ul></div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость консультации</div><div class="amt">500 ₽</div></div>'
+  +''+bfBox('totem','Стоимость консультации')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Хочу консультацию</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1424,7 +1502,7 @@ function buildDeck(){
     +'</ul>'
     +'<div class="mk-text"><p>По активациям видно, какого состояния не хватает, чтобы появилось собственное жильё. Составляем намерение к свече и передаём рецепт и намерение клиенту — либо создаём свечу под запрос сами.</p>'
     +'<p>Обязательны рекомендации по технике безопасности, сведения о количестве свечей для решения вопроса и о том, на что обращать внимание во время работы.</p></div></div></details>'
-  +'<div class="price-magic"><div class="lbl">Стоимость колоды</div><div class="amt">18 000 ₽</div></div>'
+  +''+bfBox('deck','Курс «Легенды вечности» + интерактивная колода')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/bereginya_magic" target="_blank" rel="noopener">Купить</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1541,7 +1619,7 @@ function buildCity(){
     +g(icSpeed,'Порталы ускорения и сжатия','')
   +'</div></div>'
   +'<div class="mk-text"><p>На курсе есть раздаточный материал в формате PDF-тетрадей.</p></div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость курса</div><div class="amt">9 936 ₽</div></div>'
+  +''+bfBox('city','Стоимость курса')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить курс</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1577,7 +1655,7 @@ function buildAlchemy(){
     +L(9,iLadder,'МК «Ведьмины лестницы»','Способы и принципы создания, примеры под разные цели и заговоры. Лестницы хорошо работают, когда нужно разделить цель на шаги и этапы — лучше способа не придумаешь.','МК + PDF + заговоры')
     +L(10,iBottle,'МК «Ведьмины бутылки»','Способы и принципы создания, примеры под разные задачи и заговоры. На защиту, любовь, привлечение желаемого, финансы и достаток — любое направление.','Презентация + видео')
   +'</div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость курса</div><div class="amt">15 000 ₽</div></div>'
+  +''+bfBox('herbs','Стоимость курса')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить курс</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1624,7 +1702,7 @@ function buildRecipe(){
   +'</ul>'
   +'<div class="mk-text"><p class="q">Мы разбираемся с любым запросом.</p></div></div>'
   +'<div class="mk-text"><p>Длительность консультации — 30 минут.</p></div>'
-  +'<div class="price-magic"><div class="lbl">Консультация + рецепт свечи</div><div class="amt">990 ₽</div></div>'
+  +''+bfBox('recipe','Консультация + рецепт свечи')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Хочу консультацию</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1686,7 +1764,7 @@ function buildCircles(){
     +'<p>Как сказал мой любимый Макс Фрай: «Победа любой ценой» — не мой девиз. Мой девиз звучит иначе: «Победа, недорого».</p>'
     +'<p>Вот именно этим мы и занимаемся на кологодичных кругах.</p>'
   +'</div>'
-  +'<div class="price-magic"><div class="lbl">Участие в круге</div><div class="amt">2 639 ₽</div></div>'
+  +''+bfBox('circles','Участие в круге')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Записаться в круг</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1721,7 +1799,7 @@ function buildClean(){
     +'<p>В каждый день я добавляю восполнение. Специально под этот формат создана свеча «Баланс» — она не даст опустеть после чисток, а сразу наполнит собранной, спокойной силой.</p>'
     +'<p>Для тех, кто уже на «ты» с отливками, даю эти же чистки через СЕРПЫ — быстрее, глубже, для продвинутого уровня.</p>'
   +'</div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость</div><div class="amt">2 639 ₽</div></div>'
+  +''+bfBox('mk_clean','Стоимость')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить МК</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1757,7 +1835,7 @@ function buildHome(){
     +'<li>Подготовка к ритуалу взаимодействия с Семарглом.</li>'
     +'<li>Создание оберега Семаргла для дома.</li>'
   +'</ul></div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость курса</div><div class="amt">2 639 ₽</div></div>'
+  +''+bfBox('mk_home','Стоимость курса')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить курс</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
@@ -1784,7 +1862,7 @@ function buildMoney(){
     +c('«Деньги есть»')
     +c('«Иди на хуй!»')
   +'</div>'
-  +'<div class="price-magic"><div class="lbl">Стоимость программы</div><div class="amt">2 639 ₽</div></div>'
+  +''+bfBox('mk_money','Стоимость программы')+''
   +'<div class="course-buy"><a class="btn btn-primary btn-buy" href="https://t.me/yatutYESt" target="_blank" rel="noopener">Купить программу</a>'
   +'<p class="buy-terms">Нажав на кнопку «Оплатить», вы соглашаетесь с тем, что ознакомились с <span class="legal-link" onclick="openLegal()">правовой информацией</span>.</p></div>';
 }
